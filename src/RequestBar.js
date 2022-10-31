@@ -24,11 +24,9 @@ class RequestBar extends React.Component {
     onHandleChange(event) {
         let value = event.target.value;
         if (this.isValidUrl(value)) {
-            this.state.url = value
-            this.state.error = false;
-
+            this.setState({url: value, error: false, type: this.state.type})
         } else {
-            this.state.error = true;
+            this.setState({url: this.state.url, error: true, type: this.state.type})
         }
     }
 

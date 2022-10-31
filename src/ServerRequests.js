@@ -34,6 +34,8 @@ class ServerRequests {
     }
 
     getResponse() {
-        return this.result.response;
+        return this.result.responseText;
     }
 }
+
+export default ServerRequests

@@ -8,7 +8,7 @@ class TypeChanger extends React.Component {
     }
 
     handleChange(event) {
-        this.state = event.target.value;
+        this.setState(event.target.value);
     }
 
     render() {
@@ -27,3 +27,4 @@ class TypeChanger extends React.Component {
         )
     }
 }
+export default TypeChanger

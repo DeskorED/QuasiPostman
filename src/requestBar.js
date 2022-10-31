@@ -1,11 +1,13 @@
 import React from "react";
+import RequestButton from "./RequestButton";
 
 class RequestBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             url: "",
-            error: false
+            error: false,
+            type: props.type
         };
     }
 
@@ -31,6 +33,14 @@ class RequestBar extends React.Component {
     }
 
     render() {
-        return (<input onChange={this.onHandleChange}/>)
+        return (
+            <>
+                <input onChange={this.onHandleChange}/>
+                <RequestButton type={this.state.type} url={this.state.url}/>
+            </>
+
+        )
     }
 }
+
+export default RequestBar;

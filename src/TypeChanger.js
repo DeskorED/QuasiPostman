@@ -1,5 +1,5 @@
 import React from "react";
-import RequestBar from "./requestBar";
+import RequestBar from "./RequestBar";
 
 class TypeChanger extends React.Component {
     constructor(props) {

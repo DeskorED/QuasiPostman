@@ -5,12 +5,15 @@ import reportWebVitals from './reportWebVitals';
 import ReqTable from "./ReqTable";
 import TypeChanger from "./TypeChanger";
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<TypeChanger/>);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<TypeChanger/>);
 
-let xml = new XMLHttpRequest();
-let myUrl = "https://rickandmortyapi.com/documentation";
-xml.open("GET", myUrl);
-xml.send();
-(new ReqTable(xml.responseText)).display();
+const url = "https://rickandmortyapi.com/api";
+fetch(url)
+    .then(
+        response => response.text() // .json(), .blob(), etc.
+    ).then(
+    text => console.log(text) // Handle here
+);
+
 reportWebVitals();

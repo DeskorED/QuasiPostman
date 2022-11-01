@@ -1,15 +1,9 @@
 class ServerRequests {
     constructor() {
-        this.result = null;
-        this.xmlHttpRequest = new XMLHttpRequest();
-
-        this.xmlHttpRequest.onload = function () {
-            this.result = this.xmlHttpRequest;
-        };
-
-        this.xmlHttpRequest.onerror = function () {
-            console.log(`Ошибка соединения`);
-        };
+        this.url = "";
+        this.typeResp = "GET";
+        this.response = "";
+        this.formData = new FormData();
 
     }
 
@@ -21,20 +15,32 @@ class ServerRequests {
         this.url = url;
     }
 
+    setFormData(formData){
+        this.formData = formData;
+    }
+
     respSend() {
-        this.xmlHttpRequest.open(this.typeResp, this.url);
-        this.xmlHttpRequest.send();
+        fetch(this.url, {
+            method:this.typeResp,
+            body: this.formData
+        })
+            .then(
+                response => this.response = response
+            ).then(
+            text => console.log(text)
+        );
     }
 
     getStatus() {
-        return {
-            status: this.result.status,
-            statusText: this.result.statusText
-        };
+        if (this.response) {
+            return {
+                status: this.response.status,
+            };
+        }
     }
 
     getResponse() {
-        return this.result.responseText;
+        return this.response.json;
     }
 }
 

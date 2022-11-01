@@ -4,11 +4,14 @@ class ReqTable extends React.Component{
     constructor(props) {
         super(props);
         this.response = props.response;
-        this.renderComp = <></>;
     }
 
     display(){
         console.log(this.response);
+    }
+    render() {
+        return <table>
+        </table>
     }
 
 

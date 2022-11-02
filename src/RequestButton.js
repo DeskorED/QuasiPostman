@@ -10,14 +10,10 @@ class RequestButton extends React.Component{
         this.srv.setURl(props.url);
     }
 
-    sendRequest(){
-        this.srv.respSend();
-    }
-
     render() {
         return(
             <>
-                <button onClick={this.sendRequest}> SEND </button>
+                <button onClick={this.srv.respSend}> SEND </button>
                 <ReqTable response={this.srv.getResponse} />
             </>
         )

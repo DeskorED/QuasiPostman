@@ -1,46 +1,50 @@
-class ServerRequests {
-    constructor() {
-        this.url = "";
-        this.typeResp = "GET";
-        this.response = "";
-        this.formData = new FormData();
+import {useState} from "react";
 
+function ServerRequests() {
+
+    const [url, setUrl] = useState("");
+    const [typeResp, setType] = useState("GET");
+    const [response, setResponse] = useState("")
+    const [formData, setForm] = useState(new FormData())
+
+
+    function setType(typeResp) {
+        setType(typeResp);
     }
 
-    setType(typeResp) {
-        this.typeResp = typeResp;
+    function setURl(url) {
+        setUrl(url)
     }
 
-    setURl(url) {
-        this.url = url;
+    function setFormData(formData) {
+        setForm(formData);
     }
 
-    setFormData(formData){
-        this.formData = formData;
-    }
-
-    respSend() {
-        fetch(this.url, {
-            method:this.typeResp,
-            body: this.formData
+    function respSend()
+    {
+        fetch(url, {
+            method: typeResp,
+            body: formData
         })
             .then(
-                response => this.response = response
+                response => setResponse(response)
             ).then(
             text => console.log(text)
         );
     }
 
-    getStatus() {
-        if (this.response) {
+    function getStatus()
+    {
+        if (response) {
             return {
-                status: this.response.status,
+                status: response.status,
             };
         }
     }
 
-    getResponse() {
-        return this.response.json;
+    function getResponse()
+    {
+        return response;
     }
 }
 

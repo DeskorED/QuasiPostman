@@ -5,7 +5,7 @@ class RequestBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            url: "",
+            url: "https://rickandmortyapi.com/api",
             error: false,
             type: props.type
         };

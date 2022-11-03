@@ -9,7 +9,7 @@ function RequestButton(props) {
 
     return (
         <>
-            <button onClick={srv.respSend}> SEND</button>
+            <button onClick={srv.respSend}> SEND </button>
             <ReqTable response={srv.getResponse()}/>
         </>
     )

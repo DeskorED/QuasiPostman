@@ -5,6 +5,12 @@ class ServerRequests {
         this.type = type;
         this.response = null;
         this.form = null;
+        this.setURl = this.setURl.bind(this);
+        this.setType = this.setType.bind(this);
+        this.setFormData = this.setFormData.bind(this);
+        this.respSend = this.respSend.bind(this);
+        this.getResponse = this.getResponse.bind(this);
+        this.getStatus = this.getStatus.bind(this);
     }
 
 

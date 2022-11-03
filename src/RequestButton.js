@@ -2,22 +2,18 @@ import React from "react";
 import ServerRequests from "./ServerRequests";
 import ReqTable from "./ReqTable";
 
-class RequestButton extends React.Component{
-    constructor(props) {
-        super(props);
-        this.srv = new ServerRequests();
-        this.srv.setType(props.type);
-        this.srv.setURl(props.url);
-    }
+function RequestButton(props) {
 
-    render() {
-        return(
-            <>
-                <button onClick={this.srv.respSend}> SEND </button>
-                <ReqTable response={this.srv.getResponse} />
-            </>
-        )
-    }
+
+    let srv = new ServerRequests(props.url, props.type);
+
+    return (
+        <>
+            <button onClick={srv.respSend}> SEND</button>
+            <ReqTable response={srv.getResponse()}/>
+        </>
+    )
 
 }
+
 export default RequestButton;

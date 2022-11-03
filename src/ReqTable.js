@@ -1,35 +1,39 @@
 import React from "react";
 
-class ReqTable extends React.Component{
-    constructor(props) {
-        super(props);
-        this.response = props.response;
-        this.table = "";
-    }
+function ReqTable(props) {
 
-    tableMaker(){
-        for(let elem of JSON.parse(this.response.json)){
-            this.table += <tr>
-                <td>
-                    {elem.entries[0]}
-                </td>
-                <td>
-                    {elem.entries[1]}
-                </td>
-            </tr>
+    const response = props.response;
+    let table = [];
+
+    function tableMaker() {
+        if (response) {
+            console.log(response)
+            for (let [key, value] of response.headers) {
+                table.push(<tr>
+                    <td>
+                        {key}
+                    </td>
+                    <td>
+                        {value}
+                    </td>
+                </tr>)
+            }
+            return table;
         }
-        return this.table
+        return <tr>
+            <td>ключ</td>
+            <td>значение</td>
+        </tr>
     }
 
-    display(){
-        console.log(this.response);
-    }
-    render() {
-        return <table>
-            {this.tableMaker()}
-        </table>
-    }
+
+    return <table border="2px solid black" >
+        <tbody>
+            {tableMaker()}
+        </tbody>
+    </table>
 
 
 }
+
 export default ReqTable

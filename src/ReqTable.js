@@ -4,32 +4,40 @@ function ReqTable(props) {
 
     const response = props.response;
     let table = [];
+    table.push(<tr key={"Header"}>
+        <th>Ключ</th>
+        <th>Значение</th>
+    </tr>)
 
     function tableMaker() {
         if (response) {
             console.log(response)
             for (let [key, value] of response.headers) {
-                table.push(<tr>
+                table.push(<tr key={key}>
                     <td>
-                        {key}
+                        <input>{key}</input>
                     </td>
                     <td>
-                        {value}
+                        <input>{value}</input>
                     </td>
                 </tr>)
             }
-            return table;
         }
-        return <tr>
-            <td>ключ</td>
-            <td>значение</td>
-        </tr>
+        return table;
     }
 
 
-    return <table border="2px solid black" >
-        <tbody>
+    return <table>
+        <tbody border="2px solid black">
             {tableMaker()}
+            <tr>
+                <td>
+                    <input></input>
+                </td>
+                <td>
+                    <input></input>
+                </td>
+            </tr>
         </tbody>
     </table>
 

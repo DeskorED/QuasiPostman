@@ -1,4 +1,4 @@
-class ServerRequests {
+class HttpRequest {
 
     constructor(url, type) {
         this.url = url;
@@ -26,8 +26,8 @@ class ServerRequests {
         this.form = formData;
     }
 
-    respSend() {
-        fetch(this.url, {
+    send() {
+        return fetch(this.url, {
             method: this.type,
             body: this.form
         })
@@ -51,4 +51,4 @@ class ServerRequests {
     }
 }
 
-export default ServerRequests
+export default HttpRequest

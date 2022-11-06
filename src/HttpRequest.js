@@ -8,7 +8,7 @@ class HttpRequest {
         this.setURl = this.setURl.bind(this);
         this.setType = this.setType.bind(this);
         this.setFormData = this.setFormData.bind(this);
-        this.respSend = this.respSend.bind(this);
+        this.send = this.send.bind(this);
         this.getResponse = this.getResponse.bind(this);
         this.getStatus = this.getStatus.bind(this);
     }
@@ -27,7 +27,7 @@ class HttpRequest {
     }
 
     send() {
-        return fetch(this.url, {
+        fetch(this.url, {
             method: this.type,
             body: this.form
         })

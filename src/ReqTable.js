@@ -12,7 +12,7 @@ function ReqTable(props) {
     function tableMaker() {
         if (response) {
             console.log(response)
-            for (let [key, value] of response.headers) {
+            for (let [key, value] of response) {
                 table.push(<tr key={key}>
                     <td>
                         <input>{key}</input>

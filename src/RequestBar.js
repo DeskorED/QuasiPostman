@@ -1,14 +1,14 @@
 import React, {useState} from "react";
-import RequestButton from "./Button";
 import ReqTable from "./ReqTable";
-import HttpRequest from "./HttpRequest";
 import Button from "./Button";
+import doRequest from "./doRequest";
 
 function RequestBar(props) {
     const [url, setUrl] = useState("https://rickandmortyapi.com/api");
     const [error, setError] = useState(false);
-    const type = props.type;
-    const [resp, setResp] = useState("");
+    const [body, setBody] = useState(null);
+    const method = props.method;
+    const [response, setResp] = useState("");
 
 
     let isValidUrl = urlString => {
@@ -33,15 +33,15 @@ function RequestBar(props) {
     }
 
     function onButtonClick(){
-        let myHttpRequest = new HttpRequest(url, type);
-        myHttpRequest.send().then(setResp(myHttpRequest.getResponse()));
+        const a = doRequest(url,method,body)
+        setResp(a)
     }
 
     return (
         <>
             <input onChange={onHandleChange}/>
             <Button onClick={onButtonClick} children={"Send"}/>
-            <ReqTable response={resp}/>
+            <ReqTable response={response}/>
         </>
 
     )

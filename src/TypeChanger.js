@@ -2,7 +2,7 @@ import React from "react";
 import RequestBar from "./RequestBar";
 import {useState} from 'react';
 
-function TypeChanger(props) {
+function TypeChanger() {
 
     const [state, setState] = useState("GET");
 

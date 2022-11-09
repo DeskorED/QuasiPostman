@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ReqTable from "./ReqTable";
 import Button from "./Button";
-import doRequest from "./doRequest";
+
 
 function RequestBar(props) {
     const [url, setUrl] = useState("https://rickandmortyapi.com/api");
@@ -33,8 +33,8 @@ function RequestBar(props) {
     }
 
     function onButtonClick(){
-        const a = doRequest(url,method,body)
-        setResp(a)
+        return fetch(url, {method: method, body: body}).then((response) => response.json()).then((data) => setResp(data))
+
     }
 
     return (

@@ -2,7 +2,8 @@ import React from "react";
 
 function ReqTable(props) {
 
-    const headers = props.response.headers;
+    const response = props.response;
+    console.log(response)
     let table = [];
     table.push(<tr key={"Header"}>
         <th>Ключ</th>
@@ -10,15 +11,15 @@ function ReqTable(props) {
     </tr>)
 
     function tableMaker() {
-        if (headers) {
-            console.log(headers)
-            for (let [key, value] of headers ) {
+        if (response) {
+
+            for (let [key, value] of Object.entries(response) ) {
                 table.push(<tr key={key}>
                     <td>
-                        <input>{key}</input>
+                        <input value={key} placeholder={key}/>
                     </td>
                     <td>
-                        <input>{value}</input>
+                        <input value={value} placeholder={value}/>
                     </td>
                 </tr>)
             }

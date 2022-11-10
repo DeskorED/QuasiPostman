@@ -1,4 +1,6 @@
 import React from "react";
+import InputProperties from "./InputProperties";
+import NewInputField from "./NewInputField";
 
 function ReqTable(props) {
 
@@ -16,10 +18,10 @@ function ReqTable(props) {
             for (let [key, value] of Object.entries(response) ) {
                 table.push(<tr key={key}>
                     <td>
-                        <input value={key} placeholder={key}/>
+                        <InputProperties value={key}/>
                     </td>
                     <td>
-                        <input value={value} placeholder={value}/>
+                        <InputProperties value={value}/>
                     </td>
                 </tr>)
             }
@@ -31,14 +33,7 @@ function ReqTable(props) {
     return <table>
         <tbody border="2px solid black">
             {tableMaker()}
-            <tr>
-                <td>
-                    <input></input>
-                </td>
-                <td>
-                    <input></input>
-                </td>
-            </tr>
+            <NewInputField/>
         </tbody>
     </table>
 

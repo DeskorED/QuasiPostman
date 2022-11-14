@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import InputProperties from "./InputProperties";
 import NewInputField from "./NewInputField";
 
 function ReqTable(props) {
-
+    const [change, setChange] = useState(true)
     const response = props.response;
     console.log(response)
     let table = [];
@@ -15,7 +15,7 @@ function ReqTable(props) {
     function tableMaker() {
         if (response) {
 
-            for (let [key, value] of Object.entries(response) ) {
+            for (let [key, value] of Object.entries(response)) {
                 table.push(<tr key={key}>
                     <td>
                         <InputProperties value={key}/>
@@ -29,11 +29,34 @@ function ReqTable(props) {
         return table;
     }
 
+    function onChangeKey(event) {
+        table.push(<tr key={event.target.value}>
+            <td>
+                <InputProperties value={event.target.value}/>
+            </td>
+            <td>
+                <InputProperties value={""}/>
+            </td>
+        </tr>)
+        setChange(!change)
+    }
+
+    function onChangeValue(event) {
+        table.push(<tr key={event.target.value}>
+            <td>
+                <InputProperties value={""}/>
+            </td>
+            <td>
+                <InputProperties value={event.target.value}/>
+            </td>
+        </tr>)
+        setChange(!change)
+    }
 
     return <table>
         <tbody border="2px solid black">
-            {tableMaker()}
-            <NewInputField/>
+        {tableMaker()}
+        <NewInputField onChangeKey={onChangeKey} onChangeValue={onChangeValue}/>
         </tbody>
     </table>
 

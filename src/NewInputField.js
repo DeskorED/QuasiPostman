@@ -1,12 +1,14 @@
 import React from "react";
+import NewKeyInput from "./NewKeyInput";
+import NewValueInput from "./NewValueInput";
 
 function NewInputField(props){
     return <tr>
         <td>
-            <input></input>
+            <NewKeyInput onChangeKey={props.onChangeKey}/>
         </td>
         <td>
-            <input></input>
+            <NewValueInput onChangeValue={props.onChangeValue}/>
         </td>
     </tr>
 }

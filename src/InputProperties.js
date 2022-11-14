@@ -1,6 +1,6 @@
 import React from "react";
 
-function InputProperties(props){
+function InputProperties(props) {
     return <input value={props.value} placeholder={props.value}/>
 }
 

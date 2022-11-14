@@ -1,8 +1,5 @@
-function NewValueInput(props) {
-    return <input onChange={(event) => {
-        props.onChangeValue(event);
-        event.target.value = "";
-    }}/>
+function NewValueInput() {
+    return <input/>
 }
 
 export default NewValueInput

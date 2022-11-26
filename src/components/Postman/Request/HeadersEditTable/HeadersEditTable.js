@@ -2,8 +2,9 @@ import React from "react";
 import './index.scss';
 import {TableRow} from "./TableRow";
 
-export function HeadersEditTable({}) {
+export function HeadersEditTable({myHeaders, setHeaders}) {
 
+    const headers = myHeaders;
 
     function updateHeaders(index, key, value) {
         const newHeaders = [...headers];

@@ -1,10 +1,13 @@
 import {HeadersEditTable} from "./HeadersEditTable";
 
-export function Request(headers){
+export function Request({myHeaders, setHeaders, setBody}){
 
     return (
         <div className={"request"}>
-            <HeadersEditTable/>
+            <HeadersEditTable
+                myHeaders = {myHeaders}
+                setHeaders = {setHeaders}
+            />
         </div>
     )
 }

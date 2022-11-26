@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Button from "../../../Button/Button";
-import TextField from "../../../TextField/TextField";
+import TextField from "../../TextField/TextField";
 import {ErrorWarningPanel} from "../ErrorWarningPanel";
 
 
@@ -31,7 +31,7 @@ export function RequestBar({requestMethod, setChange, myBody, myError, setError}
     return (<>
             <TextField onChange={onHandleChange}/>
             {
-                error && <ErrorWarningPanel/>
+                !error && <ErrorWarningPanel/>
             }
             <Button onClick={onButtonClick} children={"Send"}/>
         </>

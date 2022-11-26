@@ -1,4 +1,4 @@
-import TextField from "../../../../TextField/TextField.js";
+import TextField from "../../../TextField/TextField.js";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export function TableRow({headerKey, headerValue, onChangeKey, onChangeValue, isNew, onDelete}) {

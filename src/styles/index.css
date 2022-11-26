@@ -1,0 +1,12 @@
+td {
+    width: 200px;
+    height: 20px;
+}
+
+input {
+    width: 500px;
+}
+
+*, *::before, *::after {
+    /*font-family: "Rubik Microbe", sans-serif;*/
+}

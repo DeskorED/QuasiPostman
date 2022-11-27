@@ -1,5 +1,5 @@
 import React from "react";
-import './index.scss';
+import './style.scss';
 import {TableRow} from "./TableRow";
 
 export function HeadersEditTable({myHeaders, setHeaders}) {
@@ -53,9 +53,9 @@ export function HeadersEditTable({myHeaders, setHeaders}) {
     }
 
     return (
-        <table className="mytable">
+        <table className="headerTable">
             <tbody>
-            <tr className="mytr">
+            <tr>
                 <th>Ключ</th>
                 <th>Значение</th>
             </tr>

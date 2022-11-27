@@ -1,4 +1,4 @@
-export function Response(){
+export function ResponseView(){
     return (
         <>
         </>

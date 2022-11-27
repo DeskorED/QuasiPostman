@@ -1,11 +1,12 @@
 import React, {useState} from "react";
-import Button from "../../../Button/Button";
+import Button from "../../Button/Button";
 import TextField from "../../TextField/TextField";
 import {ErrorWarningPanel} from "../ErrorWarningPanel";
 
+const DEFAULT_URL = "https://rickandmortyapi.com/api"
 
 export function RequestBar({requestMethod, setChange, myBody, myError, setError}) {
-    const [url, setUrl] = useState("https://rickandmortyapi.com/api");
+    const [url, setUrl] = useState(DEFAULT_URL);
     const error = myError;
     const body = myBody
     const method = requestMethod;
@@ -15,13 +16,13 @@ export function RequestBar({requestMethod, setChange, myBody, myError, setError}
         return !!urlPattern.test(urlString);
     }
 
-    function onHandleChange(event) {
+    function onUrlChange(event) {
         let value = event.target.value;
         isValidUrl(value) ? setError(false) : setError(true);
         setUrl(value);
     }
 
-    function onButtonClick() {
+    function sendRequest() {
         return fetch(url, {method: method, body: body})
             .then((response) => response.json())
             .then((data) => setChange(data))
@@ -29,11 +30,8 @@ export function RequestBar({requestMethod, setChange, myBody, myError, setError}
     }
 
     return (<>
-            <TextField onChange={onHandleChange}/>
-            {
-                !error && <ErrorWarningPanel/>
-            }
-            <Button onClick={onButtonClick} children={"Send"}/>
+            <TextField className = {"requestBar"} onChange={onUrlChange} value={url}/>
+            <Button onClick={sendRequest} children={"Send"}/>
         </>
 
     )

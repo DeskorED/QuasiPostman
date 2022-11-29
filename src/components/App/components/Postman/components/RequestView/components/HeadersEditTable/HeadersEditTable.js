@@ -2,9 +2,7 @@ import React from "react";
 import './style.scss';
 import {TableRow} from "./TableRow";
 
-export function HeadersEditTable({myHeaders, setHeaders}) {
-
-    const headers = myHeaders;
+export function HeadersEditTable({headers, setHeaders}) {
 
     function updateHeaders(index, key, value) {
         const newHeaders = [...headers];
@@ -13,54 +11,57 @@ export function HeadersEditTable({myHeaders, setHeaders}) {
         setHeaders(newHeaders);
     }
 
+    function deleteRow(index) {
+        const newHeaders = [...headers];
+        newHeaders.splice(index, 1)
+        setHeaders(newHeaders);
+    }
+
     function tableMaker() {
         let table = [];
 
         headers.map(({key, value}, index) => {
-            table.push(
-                <TableRow
-                    key={index}
-                    headerKey={key}
-                    headerValue={value}
-                    onChangeKey={newKey => {
-                        updateHeaders(index, newKey, value);
-                    }}
-                    onChangeValue={newValue => {
-                        updateHeaders(index, key, newValue);
-                    }}/>
-            );
-        });
-
-        table.push(
-            <TableRow
-                key={headers.length}
-                headerKey={''}
-                headerValue={''}
+            table.push(<TableRow
+                index={index}
+                key={index}
+                headerKey={key}
+                headerValue={value}
                 onChangeKey={newKey => {
-                    const newHeaders = [...headers];
-                    newHeaders.push({key: newKey, value: ''});
-                    setHeaders(newHeaders);
+                    updateHeaders(index, newKey, value);
                 }}
                 onChangeValue={newValue => {
-                    const newHeaders = [...headers];
-                    newHeaders.push({key: '', value: newValue});
-                    setHeaders(newHeaders);
+                    updateHeaders(index, key, newValue);
                 }}
-                isNew
-            />
-        );
+                onDeleteRow={deleteRow}
+            />);
+        });
+
+        table.push(<TableRow
+            key={headers.length}
+            headerKey={''}
+            headerValue={''}
+            onChangeKey={newKey => {
+                const newHeaders = [...headers];
+                newHeaders.push({key: newKey, value: ''});
+                setHeaders(newHeaders);
+            }}
+            onChangeValue={newValue => {
+                const newHeaders = [...headers];
+                newHeaders.push({key: '', value: newValue});
+                setHeaders(newHeaders);
+            }}
+            isNew
+        />);
         return table;
     }
 
-    return (
-        <table className="headerTable">
-            <tbody>
-            <tr>
-                <th>Ключ</th>
-                <th>Значение</th>
-            </tr>
-            {tableMaker()}
-            </tbody>
-        </table>
-    );
+    return (<table className="headerTable">
+        <tbody>
+        <tr>
+            <th>Ключ</th>
+            <th>Значение</th>
+        </tr>
+        {tableMaker()}
+        </tbody>
+    </table>);
 }

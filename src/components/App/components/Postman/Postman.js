@@ -1,6 +1,7 @@
 import {RequestSend} from "./components/RequestSend";
 import {RequestView} from "./components/RequestView";
 import {ResponseView} from "./components/ResponseView";
+import "./style.scss"
 import React, {useState} from "react";
 
 export function Postman() {
@@ -8,19 +9,22 @@ export function Postman() {
     const [body, setBody] = React.useState(undefined);
     const [headers, setHeaders] = React.useState([]);
     const [method, setMethod] = useState("GET");
-    return (<>
+    return (<div className={"postmanPage"}>
         <RequestSend
             method={method}
             setMethod={setMethod}
-            setChange={setResponse}
-            myBody={body}
+            setResponse={setResponse}
+            requestBody={body}
         />
+        <hr/>
         <RequestView
             method={method}
             setBody={setBody}
-            myHeaders={headers}
+            requestBody={body}
+            headers={headers}
             setHeaders={setHeaders}
         />
-        <ResponseView myResponse={response}/>
-    </>);
+        <hr/>
+        <ResponseView response={response}/>
+    </div>);
 }

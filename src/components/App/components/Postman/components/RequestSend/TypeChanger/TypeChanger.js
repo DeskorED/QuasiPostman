@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./style.scss"
 export function TypeChanger({propMethod, methodChange}) {
 
 
     return (
-        <span>
-            <select value={propMethod}
+        <div>
+            <select className={"typeSelect"} value={propMethod}
                     onChange={
                         e => {
                             methodChange(e.target.value)
@@ -18,7 +18,7 @@ export function TypeChanger({propMethod, methodChange}) {
                 <option value={"DELETE"}> DELETE</option>
                 <option value={"HEAD"}> HEAD</option>
             </select>
-        </span>
+        </div>
     )
 
 }

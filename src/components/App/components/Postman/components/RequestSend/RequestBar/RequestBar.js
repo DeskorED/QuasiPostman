@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from "../../Button/Button";
 import TextField from "../../TextField/TextField";
-import {ErrorWarningPanel} from "../ErrorWarningPanel";
+import "./style.scss"
 
 const DEFAULT_URL = "https://rickandmortyapi.com/api"
 

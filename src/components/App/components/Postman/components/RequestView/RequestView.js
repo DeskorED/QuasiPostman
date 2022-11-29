@@ -2,10 +2,12 @@ import {HeadersEditTable} from "./components/HeadersEditTable";
 import {BodyTextArea} from "./components/BodyTextArea";
 import {useState} from "react";
 import Button from "../Button/Button";
+import "./style.scss"
 
-export function RequestView({myHeaders, setHeaders, setBody, method}) {
+export function RequestView({headers, setHeaders, requestBody, setBody, method}) {
     const [type, setType] = useState("Headers");
-    console.log(type)
+    let isBodyDisabled = (method === "GET" || method === "HEAD");
+
 
     return (<div className={"request"}>
         <Button onClick={(e) => {
@@ -13,17 +15,20 @@ export function RequestView({myHeaders, setHeaders, setBody, method}) {
         }}
                 value={"Headers"}
         />
-        <Button onClick={(e) => {
-            setType(e.target.value)
-        }}
-                value={"Body"}
+        <Button
+            onClick={(e) => {
+                setType(e.target.value)
+            }}
+            disabled={isBodyDisabled}
+            value={"Body"}
         />
         {type === "Headers" && <HeadersEditTable
-            myHeaders={myHeaders}
+            headers={headers}
             setHeaders={setHeaders}
         />}
         {type === "Body" && <BodyTextArea
             setBody={setBody}
+            requestBody={requestBody}
             method={method}
         />}
     </div>)

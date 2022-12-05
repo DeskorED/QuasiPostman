@@ -23,9 +23,7 @@ export function RequestBar({requestMethod, setChange, myBody, myError, setError}
     }
 
     function sendRequest() {
-        return fetch(url, {method: method, body: body})
-            .then((response) => response.json())
-            .then((data) => setChange(data))
+        return fetch(url, {method: method, body: body}).then((data) => setChange(data))
 
     }
 

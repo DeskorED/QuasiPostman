@@ -58,8 +58,8 @@ export function HeadersEditTable({headers, setHeaders}) {
     return (<table className="headerTable">
         <tbody>
         <tr>
-            <th>Ключ</th>
-            <th>Значение</th>
+            <th>KEY</th>
+            <th>VALUE</th>
         </tr>
         {tableMaker()}
         </tbody>

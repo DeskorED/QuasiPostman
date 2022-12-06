@@ -6,6 +6,7 @@ import React, {useState} from "react";
 
 export function Postman() {
     const [response, setResponse] = React.useState();
+    const [responseBody, setResponseBody] = React.useState();
     const [body, setBody] = React.useState(undefined);
     const [headers, setHeaders] = React.useState([]);
     const [method, setMethod] = useState("GET");
@@ -14,7 +15,9 @@ export function Postman() {
             method={method}
             setMethod={setMethod}
             setResponse={setResponse}
+            setResponseBody={setResponseBody}
             requestBody={body}
+            requestHeaders={headers}
         />
         <hr/>
         <RequestView
@@ -25,6 +28,9 @@ export function Postman() {
             setHeaders={setHeaders}
         />
         <hr/>
-        <ResponseView response={response}/>
+        <ResponseView
+            response={response}
+            responseBody={responseBody}
+        />
     </div>);
 }

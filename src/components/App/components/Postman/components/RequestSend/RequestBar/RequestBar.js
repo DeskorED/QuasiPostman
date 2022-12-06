@@ -5,10 +5,15 @@ import "./style.scss"
 
 const DEFAULT_URL = "https://rickandmortyapi.com/api"
 
-export function RequestBar({requestMethod, setChange, myBody, myError, setError}) {
+export function RequestBar({requestMethod, setResponse, setResponseBody, requestBody, requestHeaders, myError, setError}) {
     const [url, setUrl] = useState(DEFAULT_URL);
     const error = myError;
-    const body = myBody
+    const body = requestBody
+    let result = {};
+    requestHeaders.map(({key, value}) => {
+        result[key] = value;
+    });
+    const headers = result;
     const method = requestMethod;
 
     let isValidUrl = urlString => {
@@ -23,12 +28,17 @@ export function RequestBar({requestMethod, setChange, myBody, myError, setError}
     }
 
     function sendRequest() {
-        return fetch(url, {method: method, body: body}).then((data) => setChange(data))
+        fetch(url, {method: method, body: body})
+            .then((response) => response.json())
+            .then((response) => setResponseBody(response))
+        fetch(url, {method: method, body: body, headers: headers})
+            .then((response) => setResponse(response))
+
 
     }
 
     return (<>
-            <TextField className = {"requestBar"} onChange={onUrlChange} value={url}/>
+            <TextField className={"requestBar"} onChange={onUrlChange} value={url}/>
             <Button onClick={sendRequest} children={"Send"}/>
         </>
 

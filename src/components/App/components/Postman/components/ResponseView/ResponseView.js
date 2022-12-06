@@ -4,7 +4,7 @@ import {ResponseBody} from "./ResponseBody";
 import {ResponseHeaders} from "./ResponseHeaders";
 
 
-export function ResponseView({response}) {
+export function ResponseView({response, responseBody}) {
     const [type, setType] = useState("Headers");
 
     console.log(response);
@@ -21,11 +21,11 @@ export function ResponseView({response}) {
             value={"Body"}
         />
         {type === "Headers" && <ResponseHeaders
-            responseHeaders={response.headers}
+            responseHeaders={response}
 
         />}
         {type === "Body" && <ResponseBody
-            responseBody={response.body}
+            responseBody={responseBody}
         />}
     </div>)
 }

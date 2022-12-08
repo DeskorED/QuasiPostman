@@ -7,18 +7,20 @@ import {ResponseHeaders} from "./ResponseHeaders";
 export function ResponseView({response, responseBody}) {
     const [type, setType] = useState("Headers");
 
-    console.log(response);
     return (<div className={"request"}>
-        <Button onClick={(e) => {
+        <Button
+            onClick={(e) => {
             setType(e.target.value)
-        }}
+            }}
                 value={"Headers"}
+                disabled={response == null}
         />
         <Button
             onClick={(e) => {
                 setType(e.target.value)
             }}
             value={"Body"}
+            disabled={responseBody == null}
         />
         {type === "Headers" && <ResponseHeaders
             responseHeaders={response}

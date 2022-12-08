@@ -6,8 +6,7 @@ import "./style.scss"
 
 export function RequestView({headers, setHeaders, requestBody, setBody, method}) {
     const [type, setType] = useState("Headers");
-    let isBodyDisabled = (method === "GET" || method === "HEAD");
-
+    const isBodyDisabled = (method === "GET" || method === "HEAD");
 
     return (<div className={"request"}>
         <Button onClick={(e) => {

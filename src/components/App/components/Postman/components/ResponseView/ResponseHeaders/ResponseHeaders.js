@@ -6,7 +6,6 @@ export function ResponseHeaders({responseHeaders}) {
     function tableMaker() {
         let table = [];
         if (responseHeaders) {
-            console.log(responseHeaders.headers);
             let index = 0;
             for (let [key, value] of responseHeaders.headers) {
                 table.push(<HeaderTabelRow

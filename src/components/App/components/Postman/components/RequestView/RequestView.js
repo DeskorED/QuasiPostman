@@ -4,7 +4,7 @@ import {useState} from "react";
 import Button from "../Button/Button";
 import "./style.scss"
 
-export function RequestView({headers, setHeaders, requestBody, setBody, method}) {
+export function RequestView({headers, setHeaders, requestBody, setBody, method, setErrors, errors}) {
     const [type, setType] = useState("Headers");
     const isBodyDisabled = (method === "GET" || method === "HEAD");
 
@@ -23,6 +23,8 @@ export function RequestView({headers, setHeaders, requestBody, setBody, method})
         />
         {type === "Headers" && <HeadersEditTable
             headers={headers}
+            setErrors={setErrors}
+            errors={errors}
             setHeaders={setHeaders}
         />}
         {type === "Body" && <BodyTextArea

@@ -12,19 +12,16 @@ export function RequestBar({
                                setResponseBody,
                                requestBody,
                                requestHeaders,
-                               myError,
-                               setError
+                               error,
+                               setError,
+                               isErrors
                            }) {
     const [url, setUrl] = useState(DEFAULT_URL);
-    const error = myError;
+    const newError = error;
     const headers = new Headers();
-    requestHeaders.forEach(({key, value}) => {
-        if (key) {
-            headers.append(key, value);
-        }
-    });
     const method = requestMethod;
     let body = requestBody
+
 
     let isValidUrl = urlString => {
         let urlPattern = new RegExp('^(https?:\\/\\/)?' + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + '((\\d{1,3}\\.){3}\\d{1,3}))' + '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + '(\\?[;&a-z\\d%_.~+=-]*)?' + '(\\#[-a-z\\d_]*)?$', 'i');
@@ -32,6 +29,11 @@ export function RequestBar({
     }
 
     function sendRequest() {
+        requestHeaders.forEach(({key, value}) => {
+            if (key) {
+                headers.append(key, value);
+            }
+        });
         isValidUrl(url) ? setError(false) : setError(true);
         const options = {
             method: method,
@@ -49,14 +51,15 @@ export function RequestBar({
 
     }
 
+
     return (<>
-            {error && <ErrorWarningPanel/>}
+            {newError && <ErrorWarningPanel/>}
             <TextField className={"requestBar"}
                        onChange={
                            (e) => setUrl(e.target.value)
                        }
                        value={url}/>
-            <Button onClick={sendRequest} children={"Send"}/>
+            <Button onClick={sendRequest} disabled={isErrors} children={"Send"}/>
         </>
 
     )

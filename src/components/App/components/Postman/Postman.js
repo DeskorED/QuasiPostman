@@ -13,14 +13,7 @@ export function Postman() {
     const [method, setMethod] = useState("GET");
     return (<div className={"postmanPage"}>
         <RequestSend
-            isErrors={(function (){
-                for (let error in errors) {
-                    if (error.key === true || error.value === true) {
-                       return true;
-                    }
-                }
-                return false
-            })()}
+            errors={errors}
             method={method}
             setMethod={setMethod}
             setResponse={setResponse}

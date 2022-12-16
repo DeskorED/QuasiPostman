@@ -24,7 +24,7 @@ export function TableRow(
                            }
                            placeholder={isNew ? 'Key' : null}
                 />
-                {error && error.key && <ReportGmailerrorredIcon></ReportGmailerrorredIcon>}
+                {error && error.key && <div className={"errorIcon"}> <ReportGmailerrorredIcon ></ReportGmailerrorredIcon></div>}
             </td>
             <td className={"headerTd"}>
                 <TextField className={"headerField"}
@@ -34,10 +34,10 @@ export function TableRow(
                            }
                            placeholder={isNew ? 'Value' : null}
                 />
-                {error && error.value && <ReportGmailerrorredIcon></ReportGmailerrorredIcon>}
+                {error && error.value &&  <div className={"errorIcon"}> <ReportGmailerrorredIcon ></ReportGmailerrorredIcon></div>}
             </td>
             {!isNew && <td className={"deleteTd"}>
-                <DeleteIcon className={"deleteIcon"} onClick={() => {
+                <DeleteIcon onClick={() => {
                     onDeleteRow();
                 }}/>
             </td>}

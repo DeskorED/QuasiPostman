@@ -23,7 +23,7 @@ export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
         setHeaders(newHeaders);
         const newErrors = [...errors];
         newErrors.splice(index, 1)
-        setHeaders(newErrors);
+        setErrors(newErrors);
     }
 
     function tableMaker() {
@@ -55,7 +55,7 @@ export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
                 newHeaders.push({key: newKey, value: ''});
                 setHeaders(newHeaders);
                 const newErrors = [...errors];
-                newErrors.push({key: !headerRegExp.test(newKey), value: ''});
+                newErrors.push({key: !headerRegExp.test(newKey), value: false});
                 setErrors(newErrors);
             }}
             onChangeValue={newValue => {
@@ -63,7 +63,7 @@ export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
                 newHeaders.push({key: '', value: newValue});
                 setHeaders(newHeaders);
                 const newErrors = [...errors];
-                newErrors.push({key: '', value: !headerRegExp.test(newValue)});
+                newErrors.push({key: false, value: !headerRegExp.test(newValue)});
                 setErrors(newErrors);
             }}
             isNew

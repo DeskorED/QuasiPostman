@@ -14,13 +14,21 @@ export function RequestBar({
                                requestHeaders,
                                error,
                                setError,
-                               isErrors
+                               errors
                            }) {
     const [url, setUrl] = useState(DEFAULT_URL);
     const newError = error;
     const headers = new Headers();
     const method = requestMethod;
     let body = requestBody
+    let isErrors = (function (){
+        for (let error of errors) {
+            if (error.key === true || error.value === true) {
+                return true;
+            }
+        }
+        return false
+    })()
 
 
     let isValidUrl = urlString => {

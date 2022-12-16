@@ -4,4 +4,23 @@
 }
 .headerTd{
   padding: 0;
+  position: relative;
+}
+.errorIcon{
+  position: absolute;
+  z-index: 5;
+  top: 5%;
+  right: .5%;
+}
+
+.errorIcon:hover::before{
+  display: block;
+  z-index: 7;
+  top:-50px;
+  left: -10px;
+  position: absolute;
+  content: "! Invalid Syntax";
+  background-color: white;
+  border: .5px solid black;
+  border-radius: 5%;
 }

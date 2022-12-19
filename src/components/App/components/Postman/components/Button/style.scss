@@ -1,6 +1,11 @@
 button {
   cursor: pointer;
+  font-size: 20px;
 }
 button:disabled{
   cursor: default;
+}
+
+button:focus{
+  background-color: aqua;
 }

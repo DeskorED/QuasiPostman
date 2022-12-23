@@ -3,13 +3,13 @@ import RequestBar from "./RequestBar/RequestBar";
 import React, {useState} from "react";
 import "./style.scss"
 
-export function RequestSend({setResponse,setResponseBody, requestBody,requestHeaders, method, setMethod, errors}) {
+export function RequestSend({setResponse,setResponseBody, requestBody,requestHeaders, requestMethod, setRequestMethod, errors}) {
 
     const [error, setError] = useState(false);
     return (<div className={"requestSend"}>
-        <TypeChanger propMethod={method} methodChange={setMethod}/>
+        <TypeChanger propMethod={requestMethod} methodChange={setRequestMethod}/>
         <RequestBar
-            method={method}
+            requestMethod={requestMethod}
             errors={errors}
             requestBody={requestBody}
             requestHeaders={requestHeaders}

@@ -10,12 +10,12 @@ export function Postman() {
     const [body, setBody] = React.useState(undefined);
     const [headers, setHeaders] = React.useState([]);
     const [errors, setErrors] = React.useState([])
-    const [method, setMethod] = useState("GET");
+    const [requestMethod, setRequestMethod] = useState("GET");
     return (<div className={"postmanPage"}>
         <RequestSend
             errors={errors}
-            method={method}
-            setMethod={setMethod}
+            requestMethod={requestMethod}
+            setRequestMethod={setRequestMethod}
             setResponse={setResponse}
             setResponseBody={setResponseBody}
             requestBody={body}
@@ -23,7 +23,7 @@ export function Postman() {
         />
         <hr/>
         <RequestView
-            method={method}
+            method={requestMethod}
             setBody={setBody}
             requestBody={body}
             headers={headers}

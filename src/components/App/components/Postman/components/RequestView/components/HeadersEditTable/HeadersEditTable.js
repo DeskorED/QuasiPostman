@@ -4,7 +4,8 @@ import {TableRow} from "./TableRow";
 
 export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
 
-    let headerRegExp = new RegExp('^[a-zA-Z0-9]*$');
+    let headerKeyRegExp = new RegExp('^[a-zA-Z0-9]*$');
+    let headerValueRegExp = new RegExp('^[a-zA-Z0-9_:;.,\\\\/"\'?!(){}\\[\\]@<>=\\-+*#$&`|~^% ]*$');
 
     function updateHeaders(index, key, value) {
         const newHeaders = [...headers];
@@ -12,8 +13,8 @@ export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
         newHeaders[index].value = value;
         setHeaders(newHeaders);
         const newErrors = [...errors];
-        newErrors[index].key = !headerRegExp.test(key);
-        newErrors[index].value = !headerRegExp.test(value);
+        newErrors[index].key = !headerKeyRegExp.test(key);
+        newErrors[index].value = !headerValueRegExp.test(value);
         setErrors(newErrors);
     }
 
@@ -55,7 +56,7 @@ export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
                 newHeaders.push({key: newKey, value: ''});
                 setHeaders(newHeaders);
                 const newErrors = [...errors];
-                newErrors.push({key: !headerRegExp.test(newKey), value: false});
+                newErrors.push({key: !headerKeyRegExp.test(newKey), value: false});
                 setErrors(newErrors);
             }}
             onChangeValue={newValue => {
@@ -63,7 +64,7 @@ export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
                 newHeaders.push({key: '', value: newValue});
                 setHeaders(newHeaders);
                 const newErrors = [...errors];
-                newErrors.push({key: false, value: !headerRegExp.test(newValue)});
+                newErrors.push({key: false, value: !headerValueRegExp.test(newValue)});
                 setErrors(newErrors);
             }}
             isNew

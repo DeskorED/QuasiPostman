@@ -1,10 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 html, body{
     width: 100%;
     height: 100%;
     margin: 0;
-    background-color: bisque;
+    background-color: #1b1d1d;
+    color: whitesmoke;
+    font-family: 'Oswald', sans-serif;
 }
 .root{
     height: 100%;
     width: 100%;
+}
+textarea{
+    background-color: #242727;
+    border: 1px solid #323636;
+    color: floralwhite;
+}
+hr{
+    border: 1px solid #b11cb1;
 }

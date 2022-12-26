@@ -4,7 +4,7 @@ import {TableRow} from "./TableRow";
 
 export function HeadersEditTable({headers, setHeaders, setErrors,errors}) {
 
-    let headerKeyRegExp = new RegExp('^[a-zA-Z0-9]*$');
+    let headerKeyRegExp = new RegExp('^[a-zA-Z0-9_-]*$');
     let headerValueRegExp = new RegExp('^[a-zA-Z0-9_:;.,\\\\/"\'?!(){}\\[\\]@<>=\\-+*#$&`|~^% ]*$');
 
     function updateHeaders(index, key, value) {

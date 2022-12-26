@@ -1,11 +1,21 @@
 button {
   cursor: pointer;
   font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  color: blueviolet;
 }
 button:disabled{
   cursor: default;
+  background-color: transparent;
+  color: #5f5c5c;
 }
 
 button:focus{
-  background-color: #609898;
+  background-color: transparent;
+}
+.send{
+  background-color: blueviolet;
+  color: whitesmoke;
 }

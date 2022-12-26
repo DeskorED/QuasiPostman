@@ -7,7 +7,7 @@ export function ResponseHeaders({responseHeaders}) {
         let table = [];
         if (responseHeaders) {
             let index = 0;
-            for (let [key, value] of responseHeaders.headers) {
+            for (let [key, value] of Object.entries(responseHeaders)) {
                 table.push(<HeaderTabelRow
                     key={index++}
                     headerKey={key}

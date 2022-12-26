@@ -4,7 +4,7 @@ import {ResponseBody} from "./ResponseBody";
 import {ResponseHeaders} from "./ResponseHeaders";
 
 
-export function ResponseView({response, responseBody}) {
+export function ResponseView({responseHeaders, responseBody, statusCode,requestTime}) {
     const [type, setType] = useState("Headers");
 
     return (<div className={"request"}>
@@ -13,7 +13,7 @@ export function ResponseView({response, responseBody}) {
             setType(e.target.value)
             }}
                 value={"Headers"}
-                disabled={response == null}
+                disabled={responseHeaders == null}
         />
         <Button
             onClick={(e) => {
@@ -22,8 +22,10 @@ export function ResponseView({response, responseBody}) {
             value={"Body"}
             disabled={responseBody == null}
         />
+        {responseHeaders && <span>|  status: {statusCode}  |</span>}
+        {responseHeaders && <span> time: {requestTime} ms</span>}
         {type === "Headers" && <ResponseHeaders
-            responseHeaders={response}
+            responseHeaders={responseHeaders}
 
         />}
         {type === "Body" && <ResponseBody

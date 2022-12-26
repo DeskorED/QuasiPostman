@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/QuasiPostman/static/css/main.8232befb.css",
-    "main.js": "/QuasiPostman/static/js/main.ccda71fc.js",
+    "main.css": "/QuasiPostman/static/css/main.d5c45777.css",
+    "main.js": "/QuasiPostman/static/js/main.e6469cba.js",
     "static/media/rubik-microbe-all-400-normal.woff": "/QuasiPostman/static/media/rubik-microbe-all-400-normal.cc257213a837a62cad02.woff",
     "static/media/rubik-microbe-latin-400-normal.woff2": "/QuasiPostman/static/media/rubik-microbe-latin-400-normal.200f63f630f31dfa8ef3.woff2",
     "static/media/rubik-microbe-cyrillic-400-normal.woff2": "/QuasiPostman/static/media/rubik-microbe-cyrillic-400-normal.5c2156801f5564f5d0fd.woff2",
@@ -9,11 +9,11 @@
     "static/media/rubik-microbe-cyrillic-ext-400-normal.woff2": "/QuasiPostman/static/media/rubik-microbe-cyrillic-ext-400-normal.fa426b9d869ef314bea6.woff2",
     "static/media/rubik-microbe-hebrew-400-normal.woff2": "/QuasiPostman/static/media/rubik-microbe-hebrew-400-normal.5daec74a426d45bf2ea9.woff2",
     "index.html": "/QuasiPostman/index.html",
-    "main.8232befb.css.map": "/QuasiPostman/static/css/main.8232befb.css.map",
-    "main.ccda71fc.js.map": "/QuasiPostman/static/js/main.ccda71fc.js.map"
+    "main.d5c45777.css.map": "/QuasiPostman/static/css/main.d5c45777.css.map",
+    "main.e6469cba.js.map": "/QuasiPostman/static/js/main.e6469cba.js.map"
   },
   "entrypoints": [
-    "static/css/main.8232befb.css",
-    "static/js/main.ccda71fc.js"
+    "static/css/main.d5c45777.css",
+    "static/js/main.e6469cba.js"
   ]
 }

@@ -2,28 +2,41 @@ import {useState} from "react";
 import Button from "../Button/Button";
 import {ResponseBody} from "./ResponseBody";
 import {ResponseHeaders} from "./ResponseHeaders";
+import "./style.scss"
 
-
-export function ResponseView({responseHeaders, responseBody, statusCode,requestTime}) {
+export function ResponseView({responseHeaders, responseBody, statusCode, requestTime}) {
     const [type, setType] = useState("Headers");
-
     return (<div className={"request"}>
         <Button
             onClick={(e) => {
-            setType(e.target.value)
+                setType(e.target.value);
             }}
-                value={"Headers"}
-                disabled={responseHeaders == null}
+            className={type === "Headers" ? "selected" : ""}
+            value={"Headers"}
+            disabled={responseHeaders == null}
         />
         <Button
             onClick={(e) => {
                 setType(e.target.value)
             }}
+            className={type === "Body" ? "selected" : ""}
             value={"Body"}
             disabled={responseBody == null}
         />
-        {responseHeaders && <span>|  status: {statusCode}  |</span>}
-        {responseHeaders && <span> time: {requestTime} ms</span>}
+        {
+            responseHeaders &&
+            <span className={"metrics"}>
+                |   Status :
+                <span className={"responseInfo"}>
+                     {statusCode}
+                </span>
+                |   Time :
+                <span className={"responseInfo"}>
+                     {requestTime} ms
+                </span>
+                |
+            </span>
+        }
         {type === "Headers" && <ResponseHeaders
             responseHeaders={responseHeaders}
 

@@ -27,7 +27,6 @@ export class RequestService {
 
         const proxyResponse = await fetch(FUNCTION_URL, options);
         const unwrappedResponse = await proxyResponse.json();
-        console.log(unwrappedResponse.body);
         return {
             body: unwrappedResponse.body,
             statusCode: unwrappedResponse.statusCode,

@@ -7,3 +7,9 @@
   border-radius: 5px;
   font-family: 'Inter', sans-serif;
 }
+textarea{
+  outline: none;
+}
+select:focus{
+  outline: none;
+}

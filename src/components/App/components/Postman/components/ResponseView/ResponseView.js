@@ -43,6 +43,7 @@ export function ResponseView({responseHeaders, responseBody, statusCode, request
         />}
         {type === "Body" && <ResponseBody
             responseBody={responseBody}
+            content_type={responseHeaders['content-type']}
         />}
     </div>)
 }

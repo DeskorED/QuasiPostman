@@ -6,16 +6,15 @@ import "./style.scss"
 const DEFAULT_URL = "https://rickandmortyapi.com/api"
 
 export function RequestBar({
-                               error,
-                               setError,
                                errors,
                                onSendRequest,
                            }) {
     const [url, setUrl] = useState(DEFAULT_URL);
+    let error = false;
 
     let isValidUrl = urlString => {
-        let urlPattern = new RegExp('^(https?:\\/\\/)?' + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + '((\\d{1,3}\\.){3}\\d{1,3}))' + '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + '(\\?[;&a-z\\d%_.~+=-]*)?' + '(\\#[-a-z\\d_]*)?$', 'i');
-        setError(!urlPattern.test(urlString));
+        let urlPattern = new RegExp('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$', 'i');
+        error = !urlPattern.test(urlString);
     }
 
     let isErrors = (function () {

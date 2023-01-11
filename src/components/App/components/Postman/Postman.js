@@ -11,19 +11,20 @@ export function Postman() {
     const [body, setBody] = React.useState(undefined);
     const [headers, setHeaders] = React.useState([]);
     const [errors, setErrors] = React.useState([])
-    const [requestMethod, setRequestMethod] = useState("GET");
-    const[requestTime, setRequestTime] = useState();
-    const[statusCode, setStatusCode] = useState();
+    const [requestMethod, setRequestMethod] = React.useState("GET");
+    const [requestTime, setRequestTime] = React.useState();
+    const [statusCode, setStatusCode] = React.useState();
 
-    function sendRequest(url){
+    function sendRequest(url) {
         RequestService.sendRequest({url, requestMethod, headers, body})
-            .then((response)=>{
+            .then((response) => {
                 setResponseHeaders(response.headers);
                 setResponseBody(response.body);
                 setStatusCode(response.statusCode);
                 setRequestTime(response.requestTime);
             })
     }
+
     return (<div className={"postmanPage"}>
         <RequestSend
             errors={errors}

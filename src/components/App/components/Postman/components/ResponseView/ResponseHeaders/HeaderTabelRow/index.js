@@ -1,1 +1,0 @@
-export {HeaderTabelRow} from "./HeaderTabelRow";

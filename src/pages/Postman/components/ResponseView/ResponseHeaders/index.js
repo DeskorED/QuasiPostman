@@ -1,1 +1,1 @@
-export {ResponseHeaders} from "./ResponseHeaders"
+export { ResponseHeaders } from "./ResponseHeaders";

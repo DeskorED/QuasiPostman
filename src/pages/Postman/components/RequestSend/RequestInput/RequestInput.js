@@ -8,26 +8,26 @@ import { isErrors } from "../../../../../utility/isErrors";
 import "./style.scss";
 
 export function RequestInput({ errors, onSendRequest }) {
-  const [url, setUrl] = React.useState(DEFAULT_URL);
-
-  return (
-    <>
-      <TextField
-        className={"request__input"}
-        onChange={(e) => setUrl(e.target.value)}
-        value={url}
-      />
-      <Button
-        className={"request__send"}
-        onClick={() => {
-          onSendRequest(url);
-        }}
-        disabled={isErrors(errors, url)}
-      >
-        Send
-      </Button>
-    </>
-  );
+    const [url, setUrl] = React.useState(DEFAULT_URL);
+    console.log(errors);
+    return (
+        <>
+            <TextField
+                className={"request__input"}
+                onChange={(e) => setUrl(e.target.value)}
+                value={url}
+            />
+            <Button
+                className={"request__send"}
+                onClick={() => {
+                    onSendRequest(url);
+                }}
+                disabled={isErrors(errors, url)}
+            >
+                Send
+            </Button>
+        </>
+    );
 }
 
 export default RequestInput;

@@ -1,1 +1,1 @@
-export {ResponseBody} from "./ResponseBody"
+export { ResponseBody } from "./ResponseBody";

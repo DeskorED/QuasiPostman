@@ -1,1 +1,1 @@
-export {ResponseView} from "./ResponseView"
+export { ResponseView } from "./ResponseView";

@@ -1,1 +1,1 @@
-export {HeadersEditTable} from './HeadersEditTable';
+export { HeadersEditTable } from "./HeadersEditTable";

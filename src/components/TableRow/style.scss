@@ -1,39 +1,39 @@
-.delete-td{
-  width: 1%;
-  cursor: pointer;
+.delete-td {
+    width: 1%;
+    cursor: pointer;
 }
 
-.headers-table__td{
-  padding: 0;
-  position: relative;
+.headers-table__td {
+    padding: 0;
+    position: relative;
 }
 
-.headers-table__text-field{
-  width: 96%;
-  border: 0;
-  padding: 2%;
-  font-size: 20px;
+.headers-table__text-field {
+    width: 96%;
+    border: 0;
+    padding: 2%;
+    font-size: 20px;
 }
 
-.error-icon{
-  position: absolute;
-  z-index: 5;
-  top: 5%;
-  right: .5%;
+.error-icon {
+    position: absolute;
+    z-index: 5;
+    top: 5%;
+    right: 0.5%;
 }
 
-.error-icon:hover::before{
-  display: block;
-  z-index: 7;
-  top:-100%;
-  left: -250%;
-  text-align: center;
-  width: 120px;
-  position: absolute;
-  content: "Invalid Syntax";
-  background-color: #323030;
-  border: .5px solid darkviolet;
-  color: white;
-  border-radius: 5%;
-  padding: 5px 10px;
+.error-icon:hover::before {
+    display: block;
+    z-index: 7;
+    top: -100%;
+    left: -250%;
+    text-align: center;
+    width: 120px;
+    position: absolute;
+    content: "Invalid Syntax";
+    background-color: #323030;
+    border: 0.5px solid darkviolet;
+    color: white;
+    border-radius: 5%;
+    padding: 5px 10px;
 }

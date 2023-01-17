@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "components/Button";
 
 import { Tabs } from "constants/Constants";
-import { isBodyDisabled } from "utility/isBodyDisabled";
+import { isBodyDisabled } from "utility";
 
 import "./style.scss";
 

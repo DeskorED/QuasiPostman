@@ -1,8 +1,8 @@
 import { TableRow } from "components/TableRow";
 
+import { getID } from "utility";
 import React from "react";
 import { headerKeyRegExp, headerValueRegExp } from "constants/Constants";
-import { getID } from "utility/getID";
 
 import "./style.scss";
 

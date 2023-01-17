@@ -3,9 +3,9 @@ import { Button } from "components/Button";
 
 import React from "react";
 import { DEFAULT_URL } from "constants/Constants";
+import { isValidUrl } from "utility";
 
 import "./style.scss";
-import { isValidUrl } from "utility/isValidUrl";
 
 export function RequestInput({ disabled, onSendRequest }) {
     const [url, setUrl] = React.useState(DEFAULT_URL);

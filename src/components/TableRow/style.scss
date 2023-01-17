@@ -35,7 +35,7 @@
     position: absolute;
     content: "Key contains invalid characters, it may contains: A-Z, 1-9 and '/' characters";
     background-color: colors.$grey;
-    border: 0.5px solid colors.$blue-violet;
+    border: 1px solid colors.$warning-coral;
     color: colors.$white;
     border-radius: 5%;
     padding: 5px 10px;
@@ -52,7 +52,7 @@
     position: absolute;
     content: "Value contains non-ISO-8859-1 characters, it may contains: A-Z, 1-9 and space characters";
     background-color: colors.$grey;
-    border: 0.5px solid colors.$blue-violet;
+    border: 1px solid colors.$warning-coral;
     color: colors.$white;
     border-radius: 5%;
     padding: 5px 10px;

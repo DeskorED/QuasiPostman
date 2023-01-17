@@ -10,10 +10,11 @@ export function TableRow({
     defaultAlign,
     headerKey,
     headerValue,
+    keyError,
+    valueError,
     onChangeKey,
     onChangeValue,
     onDeleteRow,
-    errors,
 }) {
     return (
         <tr>
@@ -24,10 +25,10 @@ export function TableRow({
                     onChange={(e) => onChangeKey(id, e.target.value)}
                     placeholder={defaultAlign ? "Key" : null}
                 />
-                {errors?.find((error) => error.id === id)?.key === true && (
-                    <div className={"error-icon"}>
+                {keyError && (
+                    <div className={"error-icon error-icon_key"}>
                         {" "}
-                        <ReportGmailerrorredIcon></ReportGmailerrorredIcon>
+                        <ReportGmailerrorredIcon />
                     </div>
                 )}
             </td>
@@ -38,10 +39,10 @@ export function TableRow({
                     onChange={(e) => onChangeValue(id, e.target.value)}
                     placeholder={defaultAlign ? "Value" : null}
                 />
-                {errors?.find((error) => error.id === id)?.value === true && (
-                    <div className={"error-icon"}>
+                {valueError && (
+                    <div className={"error-icon error-icon_value"}>
                         {" "}
-                        <ReportGmailerrorredIcon></ReportGmailerrorredIcon>
+                        <ReportGmailerrorredIcon />
                     </div>
                 )}
             </td>

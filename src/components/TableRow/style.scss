@@ -1,3 +1,5 @@
+@use "../../constants/colors";
+
 .delete-td {
     width: 1%;
     cursor: pointer;
@@ -16,24 +18,42 @@
 }
 
 .error-icon {
+    color: colors.$warning-coral;
     position: absolute;
-    z-index: 5;
     top: 5%;
     right: 0.5%;
 }
 
-.error-icon:hover::before {
+.error-icon_key:hover::before {
     display: block;
-    z-index: 7;
-    top: -100%;
-    left: -250%;
-    text-align: center;
-    width: 120px;
+    z-index: 10;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: justify;
+    width: 250px;
     position: absolute;
-    content: "Invalid Syntax";
-    background-color: #323030;
-    border: 0.5px solid darkviolet;
-    color: white;
+    content: "Key contains invalid characters, it may contains: A-Z, 1-9 and '/' characters";
+    background-color: colors.$grey;
+    border: 0.5px solid colors.$blue-violet;
+    color: colors.$white;
+    border-radius: 5%;
+    padding: 5px 10px;
+}
+
+.error-icon_value:hover::before {
+    display: block;
+    z-index: 10;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: justify;
+    width: 250px;
+    position: absolute;
+    content: "Value contains non-ISO-8859-1 characters, it may contains: A-Z, 1-9 and space characters";
+    background-color: colors.$grey;
+    border: 0.5px solid colors.$blue-violet;
+    color: colors.$white;
     border-radius: 5%;
     padding: 5px 10px;
 }

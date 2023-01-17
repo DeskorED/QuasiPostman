@@ -1,15 +1,15 @@
 import TextField from "../../../../../components/TextField/TextField";
-import { Button } from "../../../../../components/Button";
+import { Button } from "components/Button";
 
 import React from "react";
-import { DEFAULT_URL } from "../../../../../constants/Constants";
-import { isErrors } from "../../../../../utility/isErrors";
+import { DEFAULT_URL } from "constants/Constants";
 
 import "./style.scss";
+import { isValidUrl } from "utility/isValidUrl";
 
-export function RequestInput({ errors, onSendRequest }) {
+export function RequestInput({ disabled, onSendRequest }) {
     const [url, setUrl] = React.useState(DEFAULT_URL);
-    console.log(errors);
+
     return (
         <>
             <TextField
@@ -22,7 +22,7 @@ export function RequestInput({ errors, onSendRequest }) {
                 onClick={() => {
                     onSendRequest(url);
                 }}
-                disabled={isErrors(errors, url)}
+                disabled={disabled || !isValidUrl(url)}
             >
                 Send
             </Button>

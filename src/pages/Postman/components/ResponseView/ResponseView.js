@@ -1,12 +1,12 @@
 import { ResponseBody } from "./ResponseBody";
 import { ResponseHeaders } from "./ResponseHeaders";
 
-import { Tabs } from "../../../../constants/Constants";
+import { Tabs } from "constants/Constants";
 
 import React, { useEffect } from "react";
 
 import "./style.scss";
-import { Button } from "../../../../components/Button";
+import { Button } from "components/Button";
 
 export function ResponseView({
     responseHeaders,

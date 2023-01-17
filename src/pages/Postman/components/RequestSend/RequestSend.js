@@ -9,7 +9,7 @@ export function RequestSend({
     onSendRequest,
     requestMethod,
     setRequestMethod,
-    errors,
+    disabled,
 }) {
     return (
         <div className="request-send">
@@ -17,7 +17,7 @@ export function RequestSend({
                 requestMethod={requestMethod}
                 setRequestMethod={setRequestMethod}
             />
-            <RequestInput errors={errors} onSendRequest={onSendRequest} />
+            <RequestInput disabled={disabled} onSendRequest={onSendRequest} />
         </div>
     );
 }

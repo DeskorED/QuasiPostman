@@ -1,8 +1,8 @@
 import { RequestSend } from "./components/RequestSend";
 import { RequestView } from "./components/RequestView";
 import { ResponseView } from "./components/ResponseView";
-import { RequestService } from "../../services/RequestService";
-import { Line } from "../../components/Line";
+import { RequestService } from "services/RequestService";
+import { Line } from "components/Line";
 
 import React from "react";
 
@@ -11,8 +11,7 @@ import "./style.scss";
 export function Postman() {
     const [response, setResponse] = React.useState(undefined);
     const [requestBody, setRequestBody] = React.useState(undefined);
-    const [requestHeaders, setRequestHeaders] = React.useState([]);
-    const [errors, setErrors] = React.useState([]);
+    const [requestHeaders, setRequestHeaders] = React.useState({});
     const [requestMethod, setRequestMethod] = React.useState("GET");
 
     const sendRequest = (url) => {
@@ -24,10 +23,17 @@ export function Postman() {
         }).then((response) => setResponse(response));
     };
 
+    let hasErrors = false;
+    Object.values(requestHeaders).forEach((header) => {
+        if (header.keyError || header.valueError) {
+            hasErrors = true;
+        }
+    });
+
     return (
         <div className="postman-page">
             <RequestSend
-                errors={errors}
+                disabled={hasErrors}
                 requestMethod={requestMethod}
                 setRequestMethod={setRequestMethod}
                 onSendRequest={sendRequest}
@@ -38,8 +44,6 @@ export function Postman() {
                 setRequestBody={setRequestBody}
                 requestBody={requestBody}
                 requestHeaders={requestHeaders}
-                setErrors={setErrors}
-                errors={errors}
                 setRequestHeaders={setRequestHeaders}
             />
             <Line />

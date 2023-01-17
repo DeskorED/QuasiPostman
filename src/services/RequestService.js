@@ -1,4 +1,4 @@
-import { methods } from "../constants/Constants";
+import { methods } from "constants/Constants";
 
 const FUNCTION_URL =
     "https://qtopftcjqwacyju3bfalpsswsu0uqwie.lambda-url.us-east-1.on.aws/";

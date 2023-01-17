@@ -1,4 +1,4 @@
-import { methods } from "../../../../../constants/Constants";
+import { methods } from "constants/Constants";
 
 import React from "react";
 

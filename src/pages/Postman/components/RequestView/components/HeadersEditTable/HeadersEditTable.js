@@ -1,81 +1,62 @@
-import { TableRow } from "../../../../../../components/TableRow";
+import { TableRow } from "components/TableRow";
 
 import React from "react";
-import { getID } from "../../../../../../utility/getID";
-import { keyErrorHandler } from "../../../../../../utility/keyErrorHandler";
-import { valueErrorHandler } from "../../../../../../utility/valueErrorHandler";
+import { headerKeyRegExp, headerValueRegExp } from "constants/Constants";
+import { getID } from "utility/getID";
 
 import "./style.scss";
 
-export function HeadersEditTable({
-    requestHeaders,
-    setRequestHeaders,
-    setErrors,
-    errors,
-}) {
-    const onHeaderValueChange = (id, value) => {
-        let newHeaders = [...requestHeaders];
+export function HeadersEditTable({ requestHeaders, setRequestHeaders }) {
+    const onKeyChange = (id, key) => {
+        let newHeaders = { ...requestHeaders };
 
-        const inArray = newHeaders.find((header) => header.id === id);
-        if (inArray) {
-            newHeaders = newHeaders.map((header) =>
-                header.id === id
-                    ? { id, value: value, key: header.key }
-                    : header
-            );
-        } else {
-            newHeaders.push({ id, value: value, key: "" });
-        }
+        const error = !headerKeyRegExp.test(key);
+        newHeaders[id] = { ...newHeaders[id], id, key, keyError: error };
+
         setRequestHeaders(newHeaders);
-        valueErrorHandler(id, value, errors, setErrors);
     };
 
-    const onKeyValueChange = (id, key) => {
-        let newHeaders = [...requestHeaders];
+    const onValueChange = (id, value) => {
+        let newHeaders = { ...requestHeaders };
 
-        const inArray = newHeaders.find((header) => header.id === id);
-        if (inArray) {
-            newHeaders = newHeaders.map((header) =>
-                header.id === id
-                    ? { id, value: header.value, key: key }
-                    : header
-            );
-        } else {
-            newHeaders.push({ id, value: "", key: key });
-        }
+        const error = !headerValueRegExp.test(value);
+        newHeaders[id] = { ...newHeaders[id], id, value, valueError: error };
+
         setRequestHeaders(newHeaders);
-        keyErrorHandler(id, key, errors, setErrors);
     };
-
-    let newID = getID();
 
     function onDeleteRow(id) {
-        let newHeaders = [...requestHeaders];
-        newHeaders = newHeaders.filter((header) => header.id !== id);
-        setRequestHeaders(newHeaders ? newHeaders : []);
+        let newHeaders = { ...requestHeaders };
+
+        delete newHeaders[id];
+
+        setRequestHeaders(newHeaders);
     }
 
-    const tableRows = requestHeaders?.map(({ id, key, value }) => (
-        <TableRow
-            id={id}
-            key={id}
-            headerKey={key}
-            headerValue={value}
-            onDeleteRow={onDeleteRow}
-            onChangeValue={onHeaderValueChange}
-            onChangeKey={onKeyValueChange}
-            errors={errors}
-        />
-    ));
+    const tableRows = Object.values(requestHeaders).map(
+        ({ id, key, value, keyError, valueError }) => (
+            <TableRow
+                id={id}
+                key={id}
+                headerKey={key}
+                headerValue={value}
+                keyError={keyError}
+                valueError={valueError}
+                onDeleteRow={onDeleteRow}
+                onChangeValue={onValueChange}
+                onChangeKey={onKeyChange}
+            />
+        )
+    );
 
+    const newID = getID();
     tableRows.push(
         <TableRow
             id={newID}
             key={newID}
             defaultAlign={true}
-            onChangeValue={onHeaderValueChange}
-            onChangeKey={onKeyValueChange}
-            errors={errors}
+            onChangeValue={onValueChange}
+            onChangeKey={onKeyChange}
         />
     );
 

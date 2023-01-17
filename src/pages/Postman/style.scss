@@ -12,13 +12,14 @@
     font-family: "Inter", sans-serif;
     box-sizing: border-box;
 }
+
 textarea {
     outline: none;
 }
+
 select:focus {
     outline: none;
 }
-
 
 html,
 body {
@@ -40,6 +41,7 @@ body {
     height: 100%;
     width: 100%;
 }
+
 textarea {
     background-color: colors.$dark-light;
     border: 1px solid colors.$grey;

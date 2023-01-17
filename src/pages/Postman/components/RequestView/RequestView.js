@@ -1,13 +1,12 @@
 import { HeadersEditTable } from "./components/HeadersEditTable";
 import { BodyTextArea } from "./components/BodyTextArea";
 import { useEffect, useState } from "react";
-import { Button } from "../../../../components/Button";
+import { Button } from "components/Button";
 
-import { Tabs } from "../../../../constants/Constants";
+import { Tabs } from "constants/Constants";
+import { isBodyDisabled } from "utility/isBodyDisabled";
 
 import "./style.scss";
-
-import { isBodyDisabled } from "../../../../utility/isBodyDisabled";
 
 export function RequestView({
     requestHeaders,
@@ -15,8 +14,6 @@ export function RequestView({
     requestBody,
     setRequestBody,
     method,
-    setErrors,
-    errors,
 }) {
     let [currentTab, setCurrentTab] = useState(Tabs?.Headers);
 
@@ -26,7 +23,7 @@ export function RequestView({
                 ? Tabs?.Body
                 : Tabs?.Headers
         );
-    }, [method]);
+    }, [method, currentTab]);
 
     return (
         <div className={"request"}>
@@ -54,8 +51,6 @@ export function RequestView({
             {currentTab === "Headers" && (
                 <HeadersEditTable
                     requestHeaders={requestHeaders}
-                    setErrors={setErrors}
-                    errors={errors}
                     setRequestHeaders={setRequestHeaders}
                 />
             )}

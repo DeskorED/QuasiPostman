@@ -1,4 +1,4 @@
-import { TableRow } from "../../../../../components/TableRow";
+import { TableRow } from "components/TableRow";
 
 import React from "react";
 

@@ -1,5 +1,5 @@
 import { HeadersEditTable } from "./components/HeadersEditTable";
-import { BodyTextArea } from "./components/BodyTextArea";
+import { BodyTextArea } from "components/BodyTextArea";
 import { useEffect, useState } from "react";
 import { Button } from "components/Button";
 

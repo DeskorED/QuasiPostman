@@ -1,4 +1,4 @@
-import "./style.scss";
+import "components/BodyTextArea/style.scss";
 
 export function BodyTextArea({ setRequestBody, requestBody }) {
     return (

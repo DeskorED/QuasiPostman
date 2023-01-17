@@ -18,6 +18,7 @@
 }
 
 .error-icon {
+    text-align: justify;
     color: colors.$warning-coral;
     position: absolute;
     top: 5%;
@@ -30,14 +31,13 @@
     top: 90%;
     left: 50%;
     transform: translate(-50%);
-    text-align: justify;
     width: 250px;
     position: absolute;
-    content: "Key contains invalid characters, it may contains: A-Z, 1-9 and '/' characters";
+    content: "Key contains invalid characters, it may contains: A-Z, 1-9 and '-, _' characters";
     background-color: colors.$grey;
-    border: 0.5px solid colors.$blue-violet;
-    color: colors.$white;
-    border-radius: 5%;
+    border: 1px solid colors.$warning-coral;
+    color: colors.$smoke;
+    border-radius: 5px;
     padding: 5px 10px;
 }
 
@@ -47,13 +47,12 @@
     top: 90%;
     left: 50%;
     transform: translate(-50%);
-    text-align: justify;
     width: 250px;
     position: absolute;
-    content: "Value contains non-ISO-8859-1 characters, it may contains: A-Z, 1-9 and space characters";
+    content: "Value contains non-ISO-8859-1 characters, it may contains: A-Z, 1-9, [!,@,#,$,%,^,&,*,(,),_,-,=,+] and space characters";
     background-color: colors.$grey;
-    border: 0.5px solid colors.$blue-violet;
-    color: colors.$white;
-    border-radius: 5%;
+    border: 1px solid colors.$warning-coral;
+    color: colors.$smoke;
+    border-radius: 5px;
     padding: 5px 10px;
 }

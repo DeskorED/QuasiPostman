@@ -30,7 +30,7 @@ button:disabled {
     content: "";
     position: absolute;
     width: 85%;
-    bottom: 0px;
+    bottom: -5px;
     height: 3px;
     background-color: colors.$blue-violet;
     display: block;

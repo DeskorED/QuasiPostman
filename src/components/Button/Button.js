@@ -1,14 +1,9 @@
 import "./style.scss";
 
-export const Button = (props) => {
+export const Button = ({ className, children, onClick, disabled }) => {
     return (
-        <button
-            className={props.className}
-            value={props.value || ""}
-            onClick={props.onClick}
-            disabled={props.disabled}
-        >
-            {props.children || props.value}
+        <button className={className} onClick={onClick} disabled={disabled}>
+            {children}
         </button>
     );
 };

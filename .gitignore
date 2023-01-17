@@ -26,3 +26,4 @@ yarn-error.log*
 # personal IDE configuration files
 workspace.xml
 tasks.xml
+.idea

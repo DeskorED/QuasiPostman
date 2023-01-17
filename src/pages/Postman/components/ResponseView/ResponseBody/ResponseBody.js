@@ -1,5 +1,6 @@
+import { prettifyHTML } from "utility";
+
 import React from "react";
-import { prettyPrint } from "html";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
@@ -18,10 +19,7 @@ export function ResponseBody({ responseBody, contentType }) {
     if (responseBody) {
         bodyText = responseBody;
         if (prettify) {
-            const prettifyHTML = (html) => {
-                return prettyPrint(html, { indent_size: 2 });
-            };
-            if (bodyText.includes("<")) {
+            if (contentType?.includes("text/html")) {
                 bodyText = prettifyHTML(bodyText);
             } else {
                 bodyText = JSON.stringify(JSON.parse(bodyText), null, 2);

@@ -4,6 +4,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
         "@fontsource/rubik-microbe": "^4.5.4",
         "@mui/icons-material": "^5.10.15",
         "@mui/material": "^5.10.15",

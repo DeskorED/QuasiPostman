@@ -1,6 +1,6 @@
 import { TableRow } from "components/TableRow";
 
-import { getID } from "utility";
+import { createID } from "utility";
 import React from "react";
 import { headerKeyRegExp, headerValueRegExp } from "constants/Constants";
 
@@ -49,7 +49,7 @@ export function HeadersEditTable({ requestHeaders, setRequestHeaders }) {
         )
     );
 
-    const newID = getID();
+    const newID = createID();
     tableRows.push(
         <TableRow
             id={newID}

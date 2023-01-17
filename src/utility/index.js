@@ -1,4 +1,4 @@
-export { getID } from "./getID";
+export { createID } from "./createID";
 
 export { isValidUrl } from "./isValidUrl";
 

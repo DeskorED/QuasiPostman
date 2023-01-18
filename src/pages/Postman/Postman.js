@@ -1,10 +1,10 @@
 import { RequestSend } from "./components/RequestSend";
 import { RequestView } from "./components/RequestView";
 import { ResponseView } from "./components/ResponseView";
-import { RequestService } from "services/RequestService";
 import { Line } from "components/Line";
 
 import React from "react";
+import { RequestService } from "services";
 import { hasErrors } from "utility";
 
 import "./style.scss";

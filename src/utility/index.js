@@ -6,4 +6,4 @@ export { isBodyDisabled } from "./isBodyDisabled";
 
 export { prettifyHTML } from "./prettifyHTML";
 
-export { hasErrors } from "./hasErrors";
+export { isHeadersValid } from "./isHeadersValid";

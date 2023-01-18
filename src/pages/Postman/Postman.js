@@ -5,7 +5,7 @@ import { Line } from "components/Line";
 
 import React from "react";
 import { RequestService } from "services";
-import { hasErrors } from "utility";
+import { isHeadersValid } from "utility";
 
 import "./style.scss";
 
@@ -24,7 +24,7 @@ export function Postman() {
         }).then((response) => setResponse(response));
     };
 
-    let disabled = hasErrors(requestHeaders);
+    let disabled = isHeadersValid(requestHeaders);
 
     return (
         <div className="postman-page">

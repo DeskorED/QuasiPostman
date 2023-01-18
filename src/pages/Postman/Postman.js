@@ -5,6 +5,7 @@ import { RequestService } from "services/RequestService";
 import { Line } from "components/Line";
 
 import React from "react";
+import { hasErrors } from "utility";
 
 import "./style.scss";
 
@@ -23,17 +24,12 @@ export function Postman() {
         }).then((response) => setResponse(response));
     };
 
-    let hasErrors = false;
-    Object.values(requestHeaders).forEach((header) => {
-        if (header.keyError || header.valueError) {
-            hasErrors = true;
-        }
-    });
+    let disabled = hasErrors(requestHeaders);
 
     return (
         <div className="postman-page">
             <RequestSend
-                disabled={hasErrors}
+                disabled={disabled}
                 requestMethod={requestMethod}
                 setRequestMethod={setRequestMethod}
                 onSendRequest={sendRequest}
@@ -47,12 +43,14 @@ export function Postman() {
                 setRequestHeaders={setRequestHeaders}
             />
             <Line />
-            <ResponseView
-                statusCode={response?.statusCode}
-                requestTime={response?.requestTime}
-                responseHeaders={response?.headers}
-                responseBody={response?.body}
-            />
+            {response && (
+                <ResponseView
+                    statusCode={response?.statusCode}
+                    requestTime={response?.requestTime}
+                    responseHeaders={response?.headers}
+                    responseBody={response?.body}
+                />
+            )}
         </div>
     );
 }

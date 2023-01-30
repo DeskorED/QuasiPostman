@@ -1,4 +1,4 @@
-import { methods } from "constants/Constants";
+import { HTTPmethods } from "constants/Constants";
 
 const FUNCTION_URL =
     "https://qtopftcjqwacyju3bfalpsswsu0uqwie.lambda-url.us-east-1.on.aws/";
@@ -18,7 +18,7 @@ export class RequestService {
         });
 
         const options = {
-            method: methods.POST,
+            method: HTTPmethods.POST,
             body: JSON.stringify({
                 url,
                 method,

@@ -1,5 +1,5 @@
-import { methods } from "constants/Constants";
+import { HTTPmethods } from "constants/Constants";
 
 export const isBodyDisabled = (method) => {
-    return method === methods?.GET || method === methods?.HEAD;
+    return method === HTTPmethods?.GET || method === HTTPmethods?.HEAD;
 };

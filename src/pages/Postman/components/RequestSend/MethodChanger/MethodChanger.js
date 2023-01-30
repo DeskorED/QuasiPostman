@@ -1,4 +1,4 @@
-import { methods } from "constants/Constants";
+import { HTTPmethods } from "constants/Constants";
 
 import React from "react";
 
@@ -14,8 +14,8 @@ export function MethodChanger({ requestMethod, setRequestMethod }) {
                     setRequestMethod(e.target.value);
                 }}
             >
-                {Object.keys(methods).map((key) => (
-                    <option key={key} value={methods[key]}>
+                {Object.keys(HTTPmethods).map((key) => (
+                    <option key={key} value={HTTPmethods[key]}>
                         {key}
                     </option>
                 ))}

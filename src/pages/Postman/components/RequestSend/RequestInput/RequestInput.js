@@ -2,13 +2,14 @@ import TextField from "../../../../../components/TextField/TextField";
 import { Button } from "components/Button";
 
 import React from "react";
-import { DEFAULT_URL } from "constants/Constants";
 import { isValidUrl } from "utility";
 
 import "./style.scss";
 
+const DEFAULT_REQUEST_URL = "https://rickandmortyapi.com/api";
+
 export function RequestInput({ disabled, onSendRequest }) {
-    const [url, setUrl] = React.useState(DEFAULT_URL);
+    const [url, setUrl] = React.useState(DEFAULT_REQUEST_URL);
 
     return (
         <>

@@ -2,7 +2,7 @@ import { TableRow } from "components/TableRow";
 
 import { createID } from "utility";
 import React from "react";
-import { headerKeyRegExp, headerValueRegExp } from "constants/Constants";
+import { headerKeyRegExp, headerValueRegExp } from "constants/RexExps";
 
 import "./style.scss";
 

@@ -16,7 +16,6 @@ export function Postman() {
     const [requestMethod, setRequestMethod] = React.useState("GET");
 
     const sendRequest = (url) => {
-        console.log(requestHeaders);
         RequestService.sendRequest({
             url,
             method: requestMethod,

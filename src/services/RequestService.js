@@ -6,15 +6,17 @@ const FUNCTION_URL =
 export class RequestService {
     static async sendRequest({ url, method, headers, body }) {
         let startTime = new Date();
+        const requestHeaders = new Headers();
         const headersObject = {};
-
-        if (typeof headers === "object") {
-            Object.entries(headers).forEach(([key, value]) => {
-                if (key) {
-                    headersObject[key] = value;
-                }
-            });
-        }
+        Object.values(headers).forEach(({ key, value }) => {
+            console.log(key);
+            if (key) {
+                requestHeaders.append(key, value);
+            }
+        });
+        [...requestHeaders.entries()].forEach(([key, value]) => {
+            headersObject[key] = value;
+        });
         const options = {
             method: HTTPmethods.POST,
             body: JSON.stringify({

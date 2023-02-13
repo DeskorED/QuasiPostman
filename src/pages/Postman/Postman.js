@@ -16,11 +16,12 @@ export function Postman() {
     const [requestMethod, setRequestMethod] = React.useState("GET");
 
     const sendRequest = (url) => {
+        console.log(requestHeaders);
         RequestService.sendRequest({
             url,
-            requestMethod,
-            requestHeaders,
-            requestBody,
+            method: requestMethod,
+            headers: requestHeaders,
+            body: requestBody,
         }).then((response) => setResponse(response));
     };
 
